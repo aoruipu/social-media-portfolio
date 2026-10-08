@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AoRui Pu — Social Media Partner</title>
+<meta name="description" content="Application portfolio for the Social Media Partner role: employer branding, social media, content, data and AI." />
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-soft:#f5f7fa;
+    --surface:#ffffff;
+    --surface-2:#fafbfd;
+    --text:#0e1420;
+    --muted:#5b6678;
+    --line:#e3e8ef;
+    --line-strong:#cfd7e2;
+    --brand:#0058a3;
+    --brand-soft:#e8f1fa;
+    --accent:#ffc900;
+    --accent-ink:#3d2f00;
+    --btn-bg:#0058a3;
+    --btn-ink:#ffffff;
+    --shadow-sm:0 1px 2px rgba(14,20,32,.05), 0 4px 12px rgba(14,20,32,.04);
+    --shadow-md:0 2px 6px rgba(14,20,32,.06), 0 18px 40px rgba(14,20,32,.07);
+    --radius:18px;
+    --radius-sm:12px;
+    --max:1140px;
+    --font:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    --mono:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  html[data-theme="dark"]{
+    --bg:#0b1017;
+    --bg-soft:#101822;
+    --surface:#131c27;
+    --surface-2:#101823;
+    --text:#eef2f7;
+    --muted:#9dabbb;
+    --line:#222f3d;
+    --line-strong:#31414f;
+    --brand:#63a9e0;
+    --brand-soft:#152738;
+    --accent:#ffc900;
+    --accent-ink:#1c1600;
+    --btn-bg:#63a9e0;
+    --btn-ink:#08131e;
+    --shadow-sm:0 1px 2px rgba(0,0,0,.4);
+    --shadow-md:0 18px 44px rgba(0,0,0,.45);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font);
+    font-size:17px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    transition:background .28s ease, color .28s ease;
+  }
+  img{max-width:100%; display:block}
+  a{color:inherit}
+  h1,h2,h3,h4{margin:0; line-height:1.14; letter-spacing:-.022em; font-weight:680}
+  p{margin:0}
+  ul{margin:0; padding:0; list-style:none}
+
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px}
+  .eyebrow{
+    font-size:12px; font-weight:700; letter-spacing:.13em; text-transform:uppercase;
+    color:var(--muted);
+  }
+  .muted{color:var(--muted)}
+
+  /* ---------- topbar ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:60;
+    backdrop-filter:saturate(180%) blur(14px);
+    -webkit-backdrop-filter:saturate(180%) blur(14px);
+    background:var(--bg);
+    background:color-mix(in srgb, var(--bg) 82%, transparent);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease, background .3s ease;
+  }
+  .topbar.is-stuck{border-bottom-color:var(--line)}
+  .topbar .wrap{display:flex; align-items:center; gap:20px; height:64px}
+  .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:-.02em; font-size:15px; white-space:nowrap}
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--brand)}
+  .nav{display:flex; gap:4px; margin-left:auto; overflow-x:auto; scrollbar-width:none}
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{
+    font-size:13.5px; font-weight:560; color:var(--muted); text-decoration:none;
+    padding:7px 11px; border-radius:9px; white-space:nowrap; transition:.18s ease;
+  }
+  .nav a:hover{color:var(--text); background:var(--bg-soft)}
+  .nav a.active{color:var(--brand); background:var(--brand-soft)}
+  .top-link{
+    flex:0 0 auto; display:inline-flex; align-items:center; gap:6px; text-decoration:none;
+    font-size:13.2px; font-weight:620; padding:8px 13px; border-radius:999px; white-space:nowrap;
+    background:var(--btn-bg); color:var(--btn-ink); transition:.2s ease;
+  }
+  .top-link:hover{filter:brightness(1.07)}
+  @media (max-width:760px){ .top-link{display:none} }
+  .theme-btn{
+    flex:0 0 auto; width:38px; height:38px; border-radius:11px; cursor:pointer;
+    border:1px solid var(--line); background:var(--surface); color:var(--text);
+    display:grid; place-items:center; transition:.18s ease;
+  }
+  .theme-btn:hover{border-color:var(--line-strong); transform:translateY(-1px)}
+  .theme-btn svg{width:17px;height:17px}
+  html[data-theme="light"] .icon-moon{display:block}
+  html[data-theme="light"] .icon-sun{display:none}
+  html[data-theme="dark"] .icon-moon{display:none}
+  html[data-theme="dark"] .icon-sun{display:block}
+  @media (max-width:900px){ .nav{display:none} }
+
+  /* ---------- hero ---------- */
+  .hero{position:relative; overflow:hidden; padding:clamp(56px,7vw,96px) 0 clamp(40px,5vw,64px)}
+  .hero::before{
+    content:""; position:absolute; inset:-40% 30% 40% -20%;
+    background:radial-gradient(60% 60% at 30% 30%, color-mix(in srgb, var(--brand) 16%, transparent), transparent 70%);
+    filter:blur(20px); pointer-events:none;
+  }
+  .hero-grid{position:relative; display:grid; grid-template-columns:1.55fr .85fr; gap:clamp(28px,4vw,60px); align-items:start}
+  .hero h1{font-size:clamp(38px,5.4vw,62px); font-weight:720; letter-spacing:-.035em}
+  .hero .role{
+    display:inline-flex; align-items:center; gap:9px; margin-bottom:20px;
+    padding:6px 13px 6px 9px; border-radius:999px; font-size:12.5px; font-weight:650;
+    background:var(--brand-soft); color:var(--brand); border:1px solid color-mix(in srgb, var(--brand) 22%, transparent);
+  }
+  .hero .role i{width:6px;height:6px;border-radius:50%;background:var(--brand); display:block}
+
+  /* identity row — portrait + name */
+  .hero-id{display:flex; align-items:center; gap:clamp(16px,2.2vw,24px)}
+  .hero-id .portrait{
+    flex:none; width:clamp(84px,9.5vw,112px); height:clamp(84px,9.5vw,112px);
+    border-radius:50%; object-fit:cover; background:var(--brand-soft);
+    border:3px solid var(--surface); box-shadow:0 8px 26px rgba(14,20,32,.16), 0 0 0 1px var(--line);
+  }
+  .hero-id-text{display:grid; gap:7px; min-width:0}
+  .hero-meta{display:flex; flex-wrap:wrap; align-items:center; gap:5px 9px; font-size:13.6px; color:var(--muted)}
+  .hero-meta .sep{width:3px; height:3px; border-radius:50%; background:var(--line-strong); flex:none}
+
+  .lede{font-size:clamp(18px,2.1vw,21px); line-height:1.55; color:var(--text); max-width:44ch; margin-top:24px}
+  .lede strong{font-weight:680}
+  .hero-sub{margin-top:18px; color:var(--muted); max-width:46ch; font-size:15.5px}
+
+  /* hero links */
+  .hero-links{display:flex; flex-wrap:wrap; gap:10px; margin-top:28px}
+  .link-btn{
+    display:inline-flex; align-items:center; gap:9px; padding:11px 16px; border-radius:999px;
+    border:1px solid var(--line); background:var(--surface); color:var(--text); text-decoration:none;
+    font-size:14.2px; font-weight:620; white-space:nowrap;
+    transition:transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s ease, border-color .25s ease, filter .25s ease;
+  }
+  .link-btn:hover{transform:translateY(-2px); box-shadow:var(--shadow-md); border-color:var(--line-strong)}
+  .link-btn svg{flex:none}
+  .link-btn .url{font-weight:560; color:var(--muted); font-size:13.4px}
+  .link-btn.primary{background:var(--btn-bg); color:var(--btn-ink); border-color:transparent}
+  .link-btn.primary .url{color:color-mix(in srgb, var(--btn-ink) 74%, transparent)}
+  .link-btn.primary:hover{filter:brightness(1.06)}
+
+  .hero-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:22px; box-shadow:var(--shadow-sm);
+  }
+  .hero-card h4{font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:700}
+  .stat-list{margin-top:14px; display:grid; gap:0}
+  .stat-list li{display:flex; align-items:baseline; justify-content:space-between; gap:14px; padding:12px 0; border-bottom:1px dashed var(--line)}
+  .stat-list li:last-child{border-bottom:0; padding-bottom:2px}
+  .stat-list .num{font-size:25px; font-weight:720; letter-spacing:-.03em}
+  .stat-list .lbl{font-size:13px; color:var(--muted); text-align:right; max-width:16ch}
+
+  /* ---------- sections ---------- */
+  section{padding:clamp(56px,8vw,104px) 0; border-top:1px solid var(--line)}
+  section.soft{background:var(--bg-soft)}
+  .sec-head{display:grid; grid-template-columns:auto 1fr; gap:clamp(16px,3vw,34px); align-items:start; margin-bottom:clamp(28px,4vw,48px)}
+  .sec-num{
+    font-family:var(--mono); font-size:12px; font-weight:700; color:var(--brand);
+    padding:4px 9px; border:1px solid color-mix(in srgb, var(--brand) 30%, transparent);
+    border-radius:8px; background:var(--brand-soft); white-space:nowrap; margin-top:6px;
+  }
+  .sec-head h2{font-size:clamp(29px,4vw,44px); max-width:22ch}
+  .sec-head .sub{margin-top:12px; color:var(--muted); max-width:62ch; font-size:16.5px}
+
+  /* ---------- generic cards ---------- */
+  .grid{display:grid; gap:18px}
+  .g-2{grid-template-columns:repeat(2,1fr)}
+  .g-3{grid-template-columns:repeat(3,1fr)}
+  .g-4{grid-template-columns:repeat(4,1fr)}
+  .card{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:24px; box-shadow:var(--shadow-sm); transition:transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s ease, border-color .3s ease;
+  }
+  .card:hover{transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:var(--line-strong)}
+  .card h3{font-size:18px; margin-bottom:9px}
+  .card p{color:var(--muted); font-size:15.3px}
+  .card .kicker{font-family:var(--mono); font-size:11.5px; letter-spacing:.06em; color:var(--brand); text-transform:uppercase; font-weight:700; margin-bottom:12px; display:block}
+
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:4px}
+  .chip{
+    font-size:13px; font-weight:560; padding:6px 12px; border-radius:999px;
+    background:var(--bg-soft); border:1px solid var(--line); color:var(--text);
+  }
+  .soft .chip{background:var(--surface)}
+
+  /* ---------- case study layout ---------- */
+  .case{display:grid; grid-template-columns:.9fr 1.1fr; gap:clamp(24px,4vw,52px); align-items:start}
+  .case + .case{margin-top:clamp(44px,6vw,80px); padding-top:clamp(44px,6vw,80px); border-top:1px solid var(--line)}
+  .case h3{font-size:clamp(22px,2.6vw,29px); letter-spacing:-.025em}
+  .case .role-line{margin-top:10px; font-size:14.5px; color:var(--brand); font-weight:600}
+  .case p{margin-top:16px; color:var(--muted); font-size:15.8px}
+  .case p.lead{color:var(--text); font-size:16.8px}
+  .blocks{display:grid; gap:14px; margin-top:22px}
+  .block{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-sm);
+    padding:16px 18px; box-shadow:var(--shadow-sm);
+  }
+  .block h4{font-size:13px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); font-weight:700; margin-bottom:8px}
+  .block ul{display:grid; gap:7px}
+  .block li{position:relative; padding-left:19px; font-size:15px; color:var(--text)}
+  .block li::before{
+    content:""; position:absolute; left:3px; top:9px; width:6px; height:6px; border-radius:2px;
+    background:var(--brand); opacity:.75;
+  }
+  .block li span{color:var(--muted)}
+
+  /* ---------- image frames ---------- */
+  .frame{
+    position:relative; border-radius:var(--radius); overflow:hidden; cursor:zoom-in;
+    border:1px solid var(--line);
+    background:var(--surface-2);
+    background:linear-gradient(145deg, color-mix(in srgb, var(--brand) 7%, var(--surface)), var(--surface-2));
+    box-shadow:var(--shadow-sm); transition:transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s ease;
+  }
+  .frame:hover{transform:translateY(-3px); box-shadow:var(--shadow-md)}
+  .frame img{width:100%; height:100%; object-fit:contain; display:block}
+  .frame.phone{aspect-ratio:1/1.95; padding:10px}
+  /* native aspect — shows a portrait photo whole, nothing cropped or blown up */
+  .frame.nat{aspect-ratio:auto; padding:0; background:var(--surface-2)}
+  .frame.nat img{height:auto; object-fit:contain}
+  /* caption sits under the photo instead of over it, so nothing is hidden */
+  .frame.nat .cap{
+    position:static; left:auto; right:auto; bottom:auto;
+    background:var(--surface); backdrop-filter:none; -webkit-backdrop-filter:none;
+    border:0; border-top:1px solid var(--line); border-radius:0;
+    padding:11px 14px; font-size:12.8px; line-height:1.45;
+  }
+  .frame.doc{aspect-ratio:1.14/1; padding:0}
+  .frame.doc img{object-fit:contain}
+  .frame .cap{
+    position:absolute; left:12px; bottom:12px; right:12px;
+    background:var(--bg);
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(8px); border:1px solid var(--line); border-radius:10px;
+    padding:8px 11px; font-size:12.6px; font-weight:580; color:var(--text);
+  }
+  .shots{display:grid; gap:16px; grid-template-columns:repeat(2,1fr)}
+  .shots.cols-3{grid-template-columns:repeat(3,1fr)}
+  .shots.align-end{align-items:end}
+  .shot-full{grid-column:1 / -1}
+
+  /* ---------- metrics ---------- */
+  .metrics{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:22px}
+  .metric{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-sm);
+    padding:16px 17px; box-shadow:var(--shadow-sm);
+  }
+  .metric .v{font-size:clamp(24px,3vw,31px); font-weight:730; letter-spacing:-.032em; line-height:1}
+  .metric .k{font-size:12.8px; color:var(--muted); margin-top:7px; line-height:1.4}
+  .metric .bar{height:4px; border-radius:99px; background:var(--brand); opacity:.85; margin-top:12px; width:var(--w,60%)}
+  .channel .metrics, .case .metrics{grid-template-columns:repeat(2,1fr); margin-top:20px}
+
+  /* ---------- channel cards ---------- */
+  .channel{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:24px; box-shadow:var(--shadow-sm);
+    display:grid; grid-template-columns:1fr; gap:18px;
+  }
+  .channel.span-2{grid-column:1 / -1}
+  .channel.split{grid-template-columns:1.05fr .95fr; align-items:start; gap:clamp(20px,3vw,34px)}
+  .channel.split .col{display:grid; gap:16px}
+  .channel.split .shots{grid-template-columns:repeat(2,1fr)}
+  .channel-top{display:flex; align-items:flex-start; justify-content:space-between; gap:14px}
+  .channel-top h3{font-size:20px}
+  .channel-top .handle{font-size:13px; color:var(--muted); margin-top:5px; font-family:var(--mono)}
+  .badge{
+    font-size:11.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+    padding:5px 10px; border-radius:7px; background:var(--accent); color:var(--accent-ink); white-space:nowrap;
+  }
+  .badge.alt{background:var(--brand-soft); color:var(--brand)}
+  .kv{display:grid; gap:0; border-top:1px solid var(--line)}
+  .kv li{display:grid; grid-template-columns:96px 1fr; gap:12px; padding:11px 0; border-bottom:1px dashed var(--line); font-size:14.6px}
+  .kv li:last-child{border-bottom:0; padding-bottom:0}
+  .kv .k{color:var(--muted); font-size:12.8px; text-transform:uppercase; letter-spacing:.07em; font-weight:650; padding-top:2px}
+  .kv .v{color:var(--text)}
+
+  /* ---------- AI feature ---------- */
+  .ai-feature{
+    position:relative; overflow:hidden;
+    border-radius:26px; padding:clamp(28px,4vw,52px);
+    background:var(--surface);
+    background:
+      radial-gradient(120% 120% at 88% 6%, color-mix(in srgb, var(--accent) 26%, transparent), transparent 55%),
+      linear-gradient(160deg, color-mix(in srgb, var(--brand) 12%, var(--surface)), var(--surface));
+    border:1px solid color-mix(in srgb, var(--brand) 24%, var(--line));
+    box-shadow:var(--shadow-md);
+  }
+  .ai-feature h2{font-size:clamp(28px,4vw,42px); max-width:26ch}
+  .ai-feature .lede{margin-top:18px; max-width:60ch}
+  .flow{display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-top:32px}
+
+  /* ---------- dream grid (AI visuals) ---------- */
+  .dream-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:32px; align-items:stretch}
+  .dream-grid .frame.visual{aspect-ratio:1/1.78; padding:0}
+  .dream-grid .frame.visual img{object-fit:cover}
+  .dream-grid .frame.visual .cap{top:12px; bottom:auto}
+  .dream-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:22px; box-shadow:var(--shadow-sm); display:flex; flex-direction:column; gap:16px;
+  }
+  .dream-card h3{font-size:18px}
+  .dream-list{display:grid; gap:10px}
+  .dream-list li{font-size:14.6px; color:var(--muted); padding-left:16px; position:relative; line-height:1.5}
+  .dream-list li::before{content:""; position:absolute; left:0; top:8px; width:6px; height:6px; border-radius:50%; background:var(--accent)}
+  .dream-list b{color:var(--text); font-weight:640}
+  .dream-note{margin-top:auto; padding-top:14px; border-top:1px dashed var(--line); font-size:13.2px; color:var(--muted)}
+
+  /* ---------- film / watch strip ---------- */
+  .watch{
+    display:grid; grid-template-columns:auto 1fr auto; gap:clamp(18px,3vw,32px); align-items:center;
+    margin-top:18px; padding:clamp(18px,2.4vw,26px);
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow-sm);
+  }
+  .watch-poster{
+    position:relative; flex:none; width:clamp(104px,12vw,142px); aspect-ratio:9/16;
+    border-radius:14px; overflow:hidden; display:block;
+    transition:transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s ease;
+  }
+  .watch-poster img{width:100%; height:100%; object-fit:cover}
+  .watch-poster::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(4,8,14,0) 42%, rgba(4,8,14,.58));
+  }
+  .watch-poster:hover{transform:translateY(-3px); box-shadow:var(--shadow-md)}
+  .watch-poster .play{
+    position:absolute; z-index:2; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:46px; height:46px; border-radius:50%; display:grid; place-items:center;
+    background:rgba(255,255,255,.93); color:#0b1620; box-shadow:0 8px 22px rgba(0,0,0,.3);
+    transition:transform .3s cubic-bezier(.16,1,.3,1);
+  }
+  .watch-poster .play svg{margin-left:2px}
+  .watch-poster:hover .play{transform:translate(-50%,-50%) scale(1.09)}
+  .watch-poster .dur{
+    position:absolute; z-index:2; left:8px; bottom:8px; padding:3px 8px; border-radius:7px;
+    background:rgba(6,12,20,.72); color:#fff; font-family:var(--mono); font-size:10.6px; letter-spacing:.04em;
+  }
+  .watch-body h3{font-size:clamp(18px,2vw,21px)}
+  .watch-body p{color:var(--muted); font-size:15.1px; margin-top:9px; max-width:58ch}
+  .watch-tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:13px}
+  .watch-cta{display:grid; gap:9px; justify-items:end; justify-self:end}
+  .btn{
+    display:inline-flex; align-items:center; gap:9px; padding:11px 19px; border-radius:999px;
+    background:var(--btn-bg); color:var(--btn-ink); font-weight:640; font-size:14.5px; text-decoration:none;
+    border:1px solid transparent; white-space:nowrap;
+    transition:transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s ease, filter .25s ease;
+  }
+  .btn:hover{transform:translateY(-2px); box-shadow:0 10px 26px rgba(14,20,32,.22); filter:brightness(1.06)}
+  .btn svg{flex:none}
+  .watch-note{font-family:var(--mono); font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); text-align:right}
+  .step{
+    background:var(--surface); border:1px solid var(--line); border-radius:14px;
+    padding:14px 13px; box-shadow:var(--shadow-sm); position:relative;
+  }
+  .step .n{font-family:var(--mono); font-size:11px; color:var(--brand); font-weight:700}
+  .step h4{font-size:14.6px; margin-top:7px; letter-spacing:-.01em}
+  .step p{font-size:13.2px; color:var(--muted); margin-top:6px; line-height:1.45}
+  .guard{
+    margin-top:26px; display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:start;
+    background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--accent);
+    border-radius:var(--radius-sm); padding:18px 20px;
+  }
+  .guard .kicker{font-family:var(--mono); font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); font-weight:700; white-space:nowrap; padding-top:3px}
+  .guard p{font-size:15.2px}
+
+  /* ---------- bring-to-role ---------- */
+  .bring{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
+  .bring .card{display:flex; flex-direction:column; gap:10px}
+  .bring .tag{
+    font-size:11.5px; font-weight:730; letter-spacing:.11em; text-transform:uppercase; color:var(--brand);
+  }
+  .bring .card p{font-size:15px}
+  .bring .card .proof{margin-top:auto; padding-top:12px; border-top:1px dashed var(--line); font-size:13.4px; color:var(--muted)}
+
+  /* ---------- note / disclaimer ---------- */
+  .note{
+    margin-top:18px; font-size:13.4px; color:var(--muted);
+    border-left:2px solid var(--line-strong); padding-left:14px;
+  }
+
+  /* ---------- footer ---------- */
+  footer{padding:clamp(48px,6vw,84px) 0 64px; border-top:1px solid var(--line); background:var(--bg-soft)}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:34px; align-items:end}
+  footer h2{font-size:clamp(26px,3.6vw,38px); max-width:24ch}
+  footer p{margin-top:14px; color:var(--muted); max-width:52ch; font-size:15.4px}
+  .contact{display:grid; gap:9px; justify-items:start}
+  .contact a{
+    text-decoration:none; font-weight:580; font-size:15.4px; color:var(--brand);
+    border-bottom:1px solid color-mix(in srgb, var(--brand) 35%, transparent); padding-bottom:1px;
+  }
+  .contact a:hover{border-bottom-color:var(--brand)}
+  .colophon{margin-top:44px; padding-top:20px; border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:12.8px; color:var(--muted)}
+
+  /* ---------- lightbox ---------- */
+  .lightbox{
+    position:fixed; inset:0; z-index:120; display:none;
+    background:rgba(5,8,13,.9);
+    background:color-mix(in srgb, #05080d 88%, transparent);
+    backdrop-filter:blur(6px); padding:5vh 5vw; cursor:zoom-out;
+  }
+  .lightbox.open{display:grid; place-items:center}
+  .lightbox img{max-width:100%; max-height:88vh; width:auto; border-radius:14px; box-shadow:0 30px 90px rgba(0,0,0,.55)}
+  .lightbox .close{
+    position:absolute; top:20px; right:24px; width:42px; height:42px; border-radius:12px;
+    background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.22); color:#fff;
+    font-size:20px; display:grid; place-items:center; cursor:pointer;
+  }
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1; transform:none}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1; transform:none; transition:none}
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:1000px){
+    .g-4,.metrics,.bring{grid-template-columns:repeat(2,1fr)}
+    .flow{grid-template-columns:repeat(2,1fr)}
+    .dream-grid{grid-template-columns:repeat(2,1fr)}
+    .dream-card{grid-column:1 / -1}
+    .g-3{grid-template-columns:repeat(2,1fr)}
+    .watch{grid-template-columns:auto 1fr}
+    .watch-cta{grid-column:1 / -1; justify-items:start; justify-self:start}
+  }
+  @media (max-width:820px){
+    body{font-size:16.4px}
+    .hero-grid{grid-template-columns:1fr}
+    .case{grid-template-columns:1fr}
+    .channel.split{grid-template-columns:1fr}
+    .g-2,.g-3,.shots,.shots.cols-3{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr}
+    .watch{grid-template-columns:auto 1fr}
+    .shots.align-end{align-items:start}
+    section{border-top:1px solid var(--line)}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 18px}
+    .g-4,.metrics,.bring,.flow,.dream-grid{grid-template-columns:1fr}
+    .kv li{grid-template-columns:1fr; gap:3px}
+    .sec-head{grid-template-columns:1fr}
+    .hero-id{gap:14px}
+    .hero-id .portrait{width:72px; height:72px; border-width:2px}
+    .hero h1{font-size:clamp(30px,9vw,40px)}
+    .hero-meta{font-size:12.8px}
+    .hero-links{gap:8px}
+    .link-btn{width:100%; justify-content:center}
+    .watch{grid-template-columns:1fr; justify-items:start; text-align:left}
+    .watch-poster{width:min(190px,58vw); justify-self:center}
+    .watch-cta{justify-items:stretch; justify-self:stretch; width:100%}
+    .btn{justify-content:center}
+    .watch-note{text-align:center}
+  }
+
+  /* ---------- print ---------- */
+  @media print{
+    .topbar,.lightbox{display:none !important}
+    body{font-size:11.5pt; background:#fff; color:#000}
+    section{padding:22px 0; border-top:1px solid #ddd; break-inside:avoid}
+    .card,.block,.metric,.frame,.channel,.ai-feature,.guard{box-shadow:none !important; break-inside:avoid}
+    .reveal{opacity:1 !important; transform:none !important}
+    .frame{aspect-ratio:auto !important}
+    .frame img{max-height:300px; object-fit:contain !important}
+    footer{padding:22px 0}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOPBAR ============ -->
+<div class="topbar" id="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> AoRui Pu — Social Media Partner</div>
+    <nav class="nav" id="nav">
+      <a href="#approach">Approach</a>
+      <a href="#ikea">IKEA</a>
+      <a href="#truecaller">Truecaller</a>
+      <a href="#channels">My channels</a>
+      <a href="#ai">AI</a>
+      <a href="#data">Data</a>
+      <a href="#bring">What I bring</a>
+    </nav>
+    <a class="top-link" href="https://aoruipu.github.io/" target="_blank" rel="noopener">
+      Recruitment work
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+    <button class="theme-btn" id="theme" aria-label="Toggle colour theme" title="Toggle light / dark">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="role"><i></i> Application — Social Media Partner</span>
+
+      <div class="hero-id">
+        <img class="portrait" src="assets/images/profile.jpg" alt="Portrait of AoRui Pu" />
+        <div class="hero-id-text">
+          <h1>AoRui Pu</h1>
+          <div class="hero-meta">
+            <span>Lund, Sweden</span><i class="sep"></i>
+            <span>Employer branding</span><i class="sep"></i>
+            <span>Social media</span><i class="sep"></i>
+            <span>Content</span><i class="sep"></i>
+            <span>Data</span><i class="sep"></i>
+            <span>AI</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="lede">Social media that starts with the <strong>audience</strong> and ends with a <strong>number</strong>.</p>
+      <p class="hero-sub">
+        I have spent the past few years in recruitment and employer branding at IKEA — working out what the brand wants to say,
+        who we need to reach, and what actually makes people stop and act. Alongside that I run my own channels across four
+        platforms, produce AI-assisted content every week, and build the dashboards that show what worked.
+        This page is what I would bring to the Social Media Partner role.
+      </p>
+
+      <div class="hero-links">
+        <a class="link-btn primary" href="https://aoruipu.github.io/" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg>
+          Recruitment work <span class="url">aoruipu.github.io</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+        <a class="link-btn" href="https://www.linkedin.com/in/aorui/" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21 8.65 22 10.9 22 14.1V21h-4v-6.1c0-1.46-.03-3.35-2.04-3.35-2.04 0-2.36 1.6-2.36 3.24V21h-4z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+
+    <aside class="hero-card reveal" aria-label="Key figures">
+      <h4>On the numbers</h4>
+      <ul class="stat-list">
+        <li><span class="num">11,952</span><span class="lbl">followers on my LinkedIn, built by posting</span></li>
+        <li><span class="num">4</span><span class="lbl">platforms I run hands-on today</span></li>
+        <li><span class="num">5,415</span><span class="lbl">followers on an employer channel I helped build</span></li>
+        <li><span class="num">~2,600</span><span class="lbl">recruitment records I have analysed</span></li>
+      </ul>
+    </aside>
+  </div>
+</header>
+
+<!-- ============ APPROACH ============ -->
+<section id="approach" class="soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">01</span>
+      <div>
+        <h2>How I approach social media</h2>
+        <p class="sub">Four habits that shape everything I make — whether it is an employer-brand campaign or a post on my own account.</p>
+      </div>
+    </div>
+
+    <div class="grid g-4">
+      <div class="card reveal">
+        <span class="kicker">Audience first</span>
+        <h3>Start with the person, not the post</h3>
+        <p>Before I write anything I map who we need to reach, what they care about and where they already spend their attention. Content that ignores the audience is just noise with good production.</p>
+      </div>
+      <div class="card reveal">
+        <span class="kicker">Format</span>
+        <h3>One idea, the right format</h3>
+        <p>The same idea behaves differently as a Reel, a carousel, a still or a long post. I test the format against the idea and the platform, not the other way around.</p>
+      </div>
+      <div class="card reveal">
+        <span class="kicker">Measurement</span>
+        <h3>Decide what success means — first</h3>
+        <p>Reach, engagement and applications are three different goals. I set the measure before publishing so we can honestly say afterwards whether it worked and why.</p>
+      </div>
+      <div class="card reveal">
+        <span class="kicker">Learning loop</span>
+        <h3>Always ask "what next time?"</h3>
+        <p>Every campaign ends with a short read-out: what performed, what surprised us, what we would change. That is how a channel gets better instead of just busier.</p>
+      </div>
+    </div>
+
+    <div class="grid g-2" style="margin-top:18px">
+      <div class="block reveal">
+        <h4>Questions I ask before anything goes live</h4>
+        <ul>
+          <li>Is this a story worth telling, or are we just filling a calendar?</li>
+          <li>Who exactly is this for — and would they recognise themselves in it?</li>
+          <li>What do we want them to think, feel and do?</li>
+          <li>What does success look like in numbers?</li>
+        </ul>
+      </div>
+      <div class="block reveal">
+        <h4>And after it is live</h4>
+        <ul>
+          <li>Did it reach the people we were aiming at, or just our own network?</li>
+          <li>Which format carried the message best?</li>
+          <li>What did the comments and DMs tell us that the metrics did not?</li>
+          <li>What do we do differently in the next round?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IKEA CASE ============ -->
+<section id="ikea">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">02</span>
+      <div>
+        <h2>Case study — IKEA Employer Branding</h2>
+        <p class="sub">Turning the employer promise into content and campaigns that candidates actually respond to — and into numbers we can act on.</p>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="reveal">
+        <h3>What I did</h3>
+        <p class="role-line">Employer Branding · Talent Acquisition — audience, content and recruitment data</p>
+        <p class="lead">
+          I worked on the candidate side of employer branding: understanding who IKEA needs to attract,
+          what they care about, and how the employer promise should be expressed so it lands with the right people.
+        </p>
+        <p>
+          My focus was the full chain — from a defined audience and messaging, through the content itself,
+          to the recruitment data that tells us whether it worked.
+        </p>
+        <div class="blocks">
+          <div class="block">
+            <h4>My role</h4>
+            <ul>
+              <li>Identified target audiences and built candidate personas</li>
+              <li>Drafted job ad templates aligned with the employer brand</li>
+              <li>Contributed to employer-brand content and campaign thinking</li>
+              <li>Analysed recruitment data to see what moved candidates</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>What I would measure, and why</h4>
+            <ul>
+              <li><span>Reach &amp; quality of audience</span> — did we appear in front of the right people?</li>
+              <li><span>Engagement</span> — did anything actually land?</li>
+              <li><span>Applications per role</span> — did attention turn into candidates?</li>
+              <li><span>Time to fill</span> — did we get the right person faster?</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="shots align-end reveal">
+        <div class="frame nat" data-img="assets/images/ikea-film-day.jpg">
+          <img src="assets/images/ikea-film-day.jpg" alt="Behind the scenes on a film day at the IKEA office — AoRui giving a peace sign while colleagues work in the background" />
+          <div class="cap">Behind the scenes — film day with colleagues, IKEA office</div>
+        </div>
+        <div class="frame nat" data-img="assets/images/ikea-campaign-news.png">
+          <img src="assets/images/ikea-campaign-news.png" alt="News coverage of the IKEA 3D printed meatballs recruitment campaign" />
+          <div class="cap">Reference point — how far IKEA can push employer-brand storytelling</div>
+        </div>
+        <div class="note shot-full">
+          I include IKEA's "Taste the Future" campaign as a reference, not as my own work: it shows the level of creativity
+          employer branding can reach here, and the standard I would want to aim at.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUECALLER CASE ============ -->
+<section id="truecaller" class="soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">03</span>
+      <div>
+        <h2>Case study — Life at Truecaller</h2>
+        <p class="sub">Building an employee-life channel from the ground up: instead of advertising jobs, show what the everyday actually feels like.</p>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="reveal">
+        <h3>The idea</h3>
+        <p class="role-line">Content creator &amp; planner · Employer branding · Tone of voice</p>
+        <p class="lead">
+          As a fast-growing scale-up, Truecaller had to compete for talent against companies with much louder employer brands.
+          We could not buy that attention — so we showed life instead.
+        </p>
+        <p>
+          The channel was built around real people and real moments: what it feels like to work here, what the culture and
+          values look like in practice, and why someone should care about joining. My role covered the channel from concept to published post.
+        </p>
+        <div class="blocks">
+          <div class="block">
+            <h4>My contribution</h4>
+            <ul>
+              <li>Channel setup and content structure</li>
+              <li>Content ideas and planning</li>
+              <li>Employer-brand positioning</li>
+              <li>Content creation and editing</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>Ways of working</h4>
+            <ul>
+              <li>Working directly with employees as storytellers</li>
+              <li>Defining and holding the tone of voice</li>
+              <li>Audience understanding for tech talent</li>
+              <li>Translating culture and values into content themes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="metrics">
+          <div class="metric reveal"><div class="v">5,415</div><div class="k">followers on the channel</div><div class="bar" style="--w:78%"></div></div>
+          <div class="metric reveal"><div class="v">197</div><div class="k">posts published</div><div class="bar" style="--w:64%"></div></div>
+        </div>
+      </div>
+
+      <div class="shots reveal">
+        <div class="frame phone" data-img="assets/images/truecaller-profile.jpg">
+          <img src="assets/images/truecaller-profile.jpg" alt="Life at Truecaller channel profile" />
+          <div class="cap">Channel profile &amp; content highlights</div>
+        </div>
+        <div class="frame phone" data-img="assets/images/truecaller-grid.jpg">
+          <img src="assets/images/truecaller-grid.jpg" alt="Life at Truecaller content grid" />
+          <div class="cap">Feed: employee voices, offices, values</div>
+        </div>
+        <div class="note shot-full">
+          Figures are as shown on the channel profile. I was one of the content creators behind the channel — happy to talk
+          through exactly which parts I owned.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PERSONAL CHANNELS ============ -->
+<section id="channels">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">04</span>
+      <div>
+        <h2>My personal content lab</h2>
+        <p class="sub">Outside work I use my own channels as a test kitchen — different audiences, different languages, different formats. Everything I learn there goes back into the job.</p>
+      </div>
+    </div>
+
+    <div class="grid g-2">
+
+      <!-- LinkedIn -->
+      <div class="channel span-2 reveal">
+        <div class="channel-top">
+          <div>
+            <h3>LinkedIn — my daily and my main channel</h3>
+            <div class="handle">linkedin.com/in/aorui · 11,952 followers</div>
+          </div>
+          <span class="badge">Daily</span>
+        </div>
+        <ul class="kv">
+          <li><span class="k">Focus</span><span class="v">Building a personal brand inside recruitment and HR tech — I post about sourcing, analytics, AI and building things.</span></li>
+          <li><span class="k">Format</span><span class="v">Text-led posts, carousels, project screenshots, short case stories.</span></li>
+          <li><span class="k">Tool</span><span class="v">Native analytics, AI-assisted drafting and idea exploration.</span></li>
+          <li><span class="k">Why</span><span class="v">The channel is where my audience actually is: candidates, recruiters and peers. It is also the fastest feedback loop I have — a post tells me within hours whether an idea works.</span></li>
+          <li><span class="k">Learned</span><span class="v">A post that reaches beyond my network (31% out-of-network reach) has to be useful to a stranger, not just familiar to a follower.</span></li>
+        </ul>
+        <div class="shots cols-3">
+          <div class="frame phone" data-img="assets/images/linkedin-profile.jpg">
+            <img src="assets/images/linkedin-profile.jpg" alt="LinkedIn profile with 11,952 followers" />
+            <div class="cap">Profile — 11,952 followers</div>
+          </div>
+          <div class="frame phone" data-img="assets/images/linkedin-insights-2.jpg">
+            <img src="assets/images/linkedin-insights-2.jpg" alt="LinkedIn post analytics showing 4,019 impressions" />
+            <div class="cap">4,019 impressions · 118 engagements</div>
+          </div>
+          <div class="frame phone" data-img="assets/images/linkedin-insights-1.jpg">
+            <img src="assets/images/linkedin-insights-1.jpg" alt="LinkedIn post analytics showing 2,726 impressions" />
+            <div class="cap">2,726 impressions · 70 engagements</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Instagram -->
+      <div class="channel reveal">
+        <div class="channel-top">
+          <div>
+            <h3>Instagram</h3>
+            <div class="handle">@aorisamuel · 1,292 followers · 633 posts</div>
+          </div>
+          <span class="badge alt">Lifestyle</span>
+        </div>
+        <ul class="kv">
+          <li><span class="k">Focus</span><span class="v">Lifestyle and everyday storytelling — food, places, people. The least "professional" channel and the most useful for learning visual instinct.</span></li>
+          <li><span class="k">Format</span><span class="v">Reels, photo sets, stories; consistent visual treatment across the grid.</span></li>
+          <li><span class="k">Tool</span><span class="v">In-app editing, AI-assisted assets, native insights.</span></li>
+          <li><span class="k">Why</span><span class="v">Short-form video is where social attention is going. I wanted to get fluent in it on my own account rather than learning it on a brand's budget.</span></li>
+          <li><span class="k">Learned</span><span class="v">Consistency of look and rhythm matters more than any single post — a grid should read as one voice, not a collection.</span></li>
+        </ul>
+        <div class="shots">
+          <div class="frame phone" data-img="assets/images/instagram-grid.jpg">
+            <img src="assets/images/instagram-grid.jpg" alt="Instagram grid" />
+            <div class="cap">Grid — lifestyle, food, people</div>
+          </div>
+          <div class="frame phone" data-img="assets/images/instagram-profile.jpg">
+            <img src="assets/images/instagram-profile.jpg" alt="Instagram profile" />
+            <div class="cap">Profile &amp; highlights</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rednote -->
+      <div class="channel reveal">
+        <div class="channel-top">
+          <div>
+            <h3>Rednote / Xiaohongshu</h3>
+            <div class="handle">美少男壮士 · Chinese-language tech reviews</div>
+          </div>
+          <span class="badge alt">Tech review</span>
+        </div>
+        <ul class="kv">
+          <li><span class="k">Focus</span><span class="v">Product reviews for a Chinese-speaking audience — gadgets, accessories and everyday technology.</span></li>
+          <li><span class="k">Format</span><span class="v">Photo carousels with on-image text, clear verdict structure: pros, concerns, conclusion, price.</span></li>
+          <li><span class="k">Tool</span><span class="v">In-app design tools, AI-assisted copy and translation, own photography.</span></li>
+          <li><span class="k">Why</span><span class="v">A different language, a different platform culture and a different buying mindset — the best training I have had for localising content instead of translating it.</span></li>
+          <li><span class="k">Learned</span><span class="v">Credibility comes from admitting the downsides. The reviews that name a flaw (the price) get the most comments.</span></li>
+        </ul>
+        <div class="metrics">
+          <div class="metric reveal"><div class="v">11.4k</div><div class="k">views on top product post</div><div class="bar" style="--w:92%"></div></div>
+          <div class="metric reveal"><div class="v">6.5k</div><div class="k">views on a follow-up review</div><div class="bar" style="--w:70%"></div></div>
+        </div>
+        <div class="shots">
+          <div class="frame phone" data-img="assets/images/rednote-profile.jpg">
+            <img src="assets/images/rednote-profile.jpg" alt="Rednote profile" />
+            <div class="cap">Profile — review library</div>
+          </div>
+          <div class="frame phone" data-img="assets/images/rednote-post.jpg">
+            <img src="assets/images/rednote-post.jpg" alt="Rednote product review post" />
+            <div class="cap">Structured review format: pros, concerns, verdict</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tradera -->
+      <div class="channel span-2 split reveal">
+        <div class="col">
+          <div class="channel-top">
+            <div>
+              <h3>Tradera — product communication with a scoreboard</h3>
+              <div class="handle">AORI_ · 5.0 rating · 173 reviews · 99% positive</div>
+            </div>
+            <span class="badge alt">Selling</span>
+          </div>
+          <ul class="kv">
+            <li><span class="k">Focus</span><span class="v">Buying and selling on Sweden's largest marketplace — the shortest possible feedback loop between communication and result.</span></li>
+            <li><span class="k">Format</span><span class="v">Listing copy, photo standards, pricing and positioning of each item.</span></li>
+            <li><span class="k">Tool</span><span class="v">Marketplace analytics, AI-assisted listing text and translation.</span></li>
+            <li><span class="k">Why</span><span class="v">Here the commercial outcome is brutal and immediate: a listing either sells or it does not. It taught me to write for a specific buyer rather than to describe a product.</span></li>
+            <li><span class="k">Learned</span><span class="v">99% positive reviews and a 5.0 rating come from the same thing employer branding needs — setting the right expectation and then meeting it exactly.</span></li>
+          </ul>
+        </div>
+        <div class="shots">
+          <div class="frame phone" data-img="assets/images/tradera-profile.jpg">
+            <img src="assets/images/tradera-profile.jpg" alt="Tradera seller profile" />
+            <div class="cap">Seller profile — 5.0, 99% positive</div>
+          </div>
+          <div class="frame phone" data-img="assets/images/tradera-listing.jpg">
+            <img src="assets/images/tradera-listing.jpg" alt="Tradera listing" />
+            <div class="cap">Listing — clarity, pricing, positioning</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI ============ -->
+<section id="ai" class="soft">
+  <div class="wrap">
+    <div class="ai-feature reveal">
+      <span class="eyebrow" style="color:var(--brand)">05 — AI in practice</span>
+      <h2>How AI turns my dream into a visual</h2>
+      <p class="lede">
+        It starts as an idea in my head — a lone figure in a desert with something enormous overhead, a body breaking apart
+        into light, a person at dusk standing in grass that glows. No camera, no crew, no location, no budget. I write the
+        scene, direct the model, keep only what matches what I had imagined — then cut it to sound and publish it. That is
+        what matters for employer branding: the idea stays human, AI removes the production limit.
+      </p>
+
+      <div class="dream-grid">
+        <div class="frame visual reveal" data-img="assets/images/ai-visual-01-desert.jpg">
+          <img src="assets/images/ai-visual-01-desert.jpg" alt="AI-generated scene: a figure standing in a desert beneath a huge hovering disc" />
+          <div class="cap">Dream 01 — desert, one figure, something enormous overhead</div>
+        </div>
+        <div class="frame visual reveal" data-img="assets/images/ai-visual-02-light.jpg">
+          <img src="assets/images/ai-visual-02-light.jpg" alt="AI-generated scene: a body dissolving into shards of light" />
+          <div class="cap">Dream 02 — a body breaking apart into light</div>
+        </div>
+        <div class="dream-card reveal">
+          <div>
+            <span class="kicker">From dream to frame</span>
+            <h3>I direct the model like a photographer</h3>
+          </div>
+          <ul class="dream-list">
+            <li><b>Subject</b> — who or what is in the frame, and what they are doing.</li>
+            <li><b>Light</b> — the mood decides everything, so I write it first.</li>
+            <li><b>Camera</b> — lens, distance, movement, and what stays out of frame.</li>
+            <li><b>Selection</b> — most outputs get deleted. I keep the one that matches the intention.</li>
+            <li><b>Sound &amp; edit</b> — pacing decides whether it reads as a film or as a clip.</li>
+          </ul>
+          <div class="dream-note">
+            Published with the platform's AI-generated media label. Disclosure is part of the craft, not an afterthought.
+          </div>
+        </div>
+      </div>
+
+      <!-- the third dream, in motion -->
+      <div class="watch reveal">
+        <a class="watch-poster" href="https://www.tiktok.com/@aoruisamuel/video/7694312256263277827" target="_blank" rel="noopener" aria-label="Watch the film on TikTok">
+          <img src="assets/images/ai-visual-03-film.jpg" alt="Poster frame from the AI-generated film — a figure at dusk among glowing grass" />
+          <span class="play" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72L19 12z"/></svg>
+          </span>
+          <span class="dur">AI film</span>
+        </a>
+        <div class="watch-body">
+          <span class="kicker">Dream 03 — in motion</span>
+          <h3>The same idea, but moving — a short film with sound</h3>
+          <p>
+            Stills prove the image. Film proves the direction — pacing, sound and cut are where an idea either lands or
+            falls apart. This one was written, prompted, edited and published end to end on my phone.
+          </p>
+          <div class="watch-tags">
+            <span class="chip">Concept &amp; prompt</span>
+            <span class="chip">AI video generation</span>
+            <span class="chip">Sound &amp; edit</span>
+            <span class="chip">AI label disclosed</span>
+          </div>
+        </div>
+        <div class="watch-cta">
+          <a class="btn" href="https://www.tiktok.com/@aoruisamuel/video/7694312256263277827" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72L19 12z"/></svg>
+            Watch on TikTok
+          </a>
+          <span class="watch-note">@aoruisamuel</span>
+        </div>
+      </div>
+
+      <div class="flow">
+        <div class="step reveal"><span class="n">01</span><h4>Dream</h4><p>The idea in my head, before any tool touches it.</p></div>
+        <div class="step reveal"><span class="n">02</span><h4>Prompt</h4><p>I write the scene: subject, light, camera, mood.</p></div>
+        <div class="step reveal"><span class="n">03</span><h4>Generate</h4><p>The model renders video and stills from my concept.</p></div>
+        <div class="step reveal"><span class="n">04</span><h4>Direct</h4><p>Keep the frames that match the intention, re-prompt the rest.</p></div>
+        <div class="step reveal"><span class="n">05</span><h4>Publish</h4><p>One idea reshaped into five formats and three languages.</p></div>
+      </div>
+
+      <div class="grid g-3" style="margin-top:22px">
+        <div class="card reveal">
+          <span class="kicker">Production</span>
+          <h3>AI-generated video &amp; visuals</h3>
+          <p>I create videos and images from my own concepts using generative models — turning a written idea into something
+          publishable the same day, without a production budget.</p>
+        </div>
+        <div class="card reveal">
+          <span class="kicker">Scale</span>
+          <h3>One idea, many outputs</h3>
+          <p>Copy variants, captions, alt text, thumbnails and translations across Swedish, English and Chinese — the repetitive
+          work that normally slows a channel down.</p>
+        </div>
+        <div class="card reveal">
+          <span class="kicker">Thinking</span>
+          <h3>Practical applications for EB</h3>
+          <p>Where AI genuinely helps an employer brand: faster concept testing, localisation for international talent pools,
+          and making niche roles visible without a photo shoot.</p>
+        </div>
+      </div>
+
+      <div class="guard reveal">
+        <span class="kicker">Where I draw the line</span>
+        <p>
+          AI does not write the employer promise, it does not speak in a colleague's voice, and it never publishes unverified
+          claims about the workplace. It accelerates production; authenticity and accuracy stay human. That balance is exactly
+          what an employer brand has to protect.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DATA ============ -->
+<section id="data">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">06</span>
+      <div>
+        <h2>From content to insight</h2>
+        <p class="sub">I build the reporting layer myself. If a channel cannot show what it delivered, it cannot defend its next budget — or improve.</p>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="reveal">
+        <h3>Recruitment analytics dashboard</h3>
+        <p class="role-line">Built and maintained by me · SQL · Power BI · AI-assisted analysis</p>
+        <p class="lead">
+          I built a recruitment analytics dashboard that brings hiring volume, pipeline duration and departmental demand
+          into one view — the layer most social and employer-brand activity is usually missing.
+        </p>
+        <p>
+          It answers the questions that connect communication to hiring: where does demand come from, how long does a
+          pipeline actually take, which stages are the bottleneck, and which messages help a role fill faster.
+        </p>
+
+        <div class="metrics">
+          <div class="metric reveal"><div class="v">~2,600</div><div class="k">recruitment records analysed (2020–2026)</div><div class="bar" style="--w:88%"></div></div>
+          <div class="metric reveal"><div class="v">~125 d</div><div class="k">average time to fill</div><div class="bar" style="--w:74%"></div></div>
+          <div class="metric reveal"><div class="v">~66</div><div class="k">applications per role on average</div><div class="bar" style="--w:61%"></div></div>
+          <div class="metric reveal"><div class="v">~47 d</div><div class="k">average first pipeline stage</div><div class="bar" style="--w:52%"></div></div>
+        </div>
+
+        <div class="blocks" style="margin-top:22px">
+          <div class="block">
+            <h4>What I track</h4>
+            <ul>
+              <li>Recruitment performance — volume, time-to-fill, applications per role</li>
+              <li>Pipeline behaviour — days spent in each stage, where roles stall</li>
+              <li>Channel &amp; audience performance — what reached whom, and what converted</li>
+              <li>Employer-branding effect — how campaigns compare against baseline hiring</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>Tools I use</h4>
+            <ul>
+              <li>SQL for data extraction and joins</li>
+              <li>Power BI for dashboards and visual storytelling</li>
+              <li>AI models for analysis, pattern-spotting and reporting drafts</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="note">
+          All figures shown are rounded and aggregated to illustrate method — no personal or candidate-identifiable data is included.
+        </div>
+      </div>
+
+      <div class="shots reveal">
+        <div class="frame doc shot-full" data-img="assets/images/recruitment-dashboard.png">
+          <img src="assets/images/recruitment-dashboard.png" alt="Recruitment analytics dashboard" />
+          <div class="cap">Dashboard overview — hiring volume, time to fill, organisation breakdown, stage duration</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT I BRING ============ -->
+<section id="bring" class="soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">07</span>
+      <div>
+        <h2>What I bring to the Social Media Partner role</h2>
+        <p class="sub">Four things I would walk in with on day one.</p>
+      </div>
+    </div>
+
+    <div class="bring">
+      <div class="card reveal">
+        <span class="tag">Social</span>
+        <h3>Content built for the audience</h3>
+        <p>I understand how to create content for different audiences and social formats — and how different the same message
+        has to be on LinkedIn, Reels or Rednote.</p>
+        <div class="proof">Proof: four channels run hands-on, in three languages.</div>
+      </div>
+      <div class="card reveal">
+        <span class="tag">Employer brand</span>
+        <h3>Inside knowledge of the promise</h3>
+        <p>Several years of IKEA employer-branding experience and a solid understanding of the employer promise — what it
+        means, and what it must never become.</p>
+        <div class="proof">Proof: audience mapping, job ad templates, EB content.</div>
+      </div>
+      <div class="card reveal">
+        <span class="tag">Data</span>
+        <h3>Insight that changes decisions</h3>
+        <p>I use recruitment data and audience insight to see what works, what does not, and what to do differently — then report
+        it in a way people act on.</p>
+        <div class="proof">Proof: own dashboard, ~2,600 records analysed.</div>
+      </div>
+      <div class="card reveal">
+        <span class="tag">AI</span>
+        <h3>Hands-on, not theoretical</h3>
+        <p>I experiment with AI-generated content weekly and think about where it genuinely fits employer branding and social —
+        including where it does not belong.</p>
+        <div class="proof">Proof: AI-assisted video, copy and localisation in production.</div>
+      </div>
+    </div>
+
+    <div class="grid g-3" style="margin-top:26px">
+      <div class="card reveal">
+        <span class="kicker">First 30 days</span>
+        <h3>Listen</h3>
+        <p>Audit the channels and the content calendar, talk to the teams closest to the audience, and map what is already
+        working before changing anything.</p>
+      </div>
+      <div class="card reveal">
+        <span class="kicker">30–60 days</span>
+        <h3>Plan</h3>
+        <p>Build a content plan tied to the employer promise and the hiring priorities, with formats chosen deliberately and
+        measures agreed up front.</p>
+      </div>
+      <div class="card reveal">
+        <span class="kicker">60–90 days</span>
+        <h3>Prove</h3>
+        <p>Publish, measure and report — and use that first read-out to show what moved, what to scale, and what to stop.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="reveal">
+        <h2>Happy to go deeper on any of this.</h2>
+        <p>The cases above are the short version. I can walk through the content plans, the data behind them, or a live
+        AI workflow in a conversation — whichever is most useful.</p>
+      </div>
+      <div class="contact reveal">
+        <a href="https://aoruipu.github.io/" target="_blank" rel="noopener">Recruitment work — aoruipu.github.io</a>
+        <a href="https://www.linkedin.com/in/aorui/" target="_blank" rel="noopener">AoRui Pu — LinkedIn</a>
+        <a href="#">Email</a>
+      </div>
+    </div>
+    <div class="colophon">
+      <span>Prepared for the Social Media Partner role · AoRui Pu</span>
+      <span>All figures rounded and aggregated · no personal data</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="close" id="lightboxClose" aria-label="Close">×</button>
+  <img id="lightboxImg" src="" alt="" />
+</div>
+
+<script>
+(function(){
+  // ---- theme (persisted) ----
+  var root = document.documentElement;
+  var stored = null;
+  try { stored = localStorage.getItem('apu-theme'); } catch(e){}
+  if (stored) { root.setAttribute('data-theme', stored); }
+  else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    root.setAttribute('data-theme', 'dark');
+  }
+  document.getElementById('theme').addEventListener('click', function(){
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('apu-theme', next); } catch(e){}
+  });
+
+  // ---- reveal on scroll ----
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    items.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    items.forEach(function(el, i){ el.style.transitionDelay = (Math.min(i % 4, 3) * 55) + 'ms'; io.observe(el); });
+  }
+
+  // ---- sticky bar shadow ----
+  var bar = document.getElementById('topbar');
+  var onScroll = function(){ bar.classList.toggle('is-stuck', window.scrollY > 8); };
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // ---- active nav ----
+  var links = Array.prototype.slice.call(document.querySelectorAll('#nav a'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  if ('IntersectionObserver' in window && sections.length) {
+    var navIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id); });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(function(s){ navIo.observe(s); });
+  }
+
+  // ---- lightbox ----
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  document.querySelectorAll('.frame').forEach(function(f){
+    f.addEventListener('click', function(){
+      var src = f.getAttribute('data-img');
+      var inner = f.querySelector('img');
+      if (!src || !inner) return;
+      lbImg.src = src;
+      lbImg.alt = inner.alt || '';
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  function closeLb(){ lb.classList.remove('open'); document.body.style.overflow = ''; lbImg.src = ''; }
+  lb.addEventListener('click', closeLb);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeLb(); });
+})();
+</script>
+</body>
+</html>
